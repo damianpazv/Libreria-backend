@@ -2,8 +2,6 @@ const { Router } = require("express");
 const router_productos = require("./productos");
 
 
-
-
 const router=Router();
 
 
