@@ -22,7 +22,7 @@ router_productos.post("/",
 
 router_productos.put("/", editarProducto)
 
-router_productos.delete("/",eliminarProducto)
+router_productos.delete("/:id",eliminarProducto)
 
 
 

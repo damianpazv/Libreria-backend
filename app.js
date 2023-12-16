@@ -1,12 +1,16 @@
 //importar ibrerias 
 const express = require('express');
 const router = require('./routes');
+const dbconection = require('./database/config');
 require("dotenv").config();
 
 //crear app
 const app = express();
 
 const PORT=process.env.PORT || 4040; 
+
+//conectar base de datos
+dbconection();
 
 //middlewares
 
