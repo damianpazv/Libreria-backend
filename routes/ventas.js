@@ -1,13 +1,10 @@
 const { Router } = require("express");
 const { mostrarVenta, crearVenta, editarVenta, eliminarVenta } = require("../controllers/ventaCRUD");
 
-
-
-
 const router_ventas=Router();
 
+// endpoints de ventas
 
-// endpoints de producto
 router_ventas.get("/", mostrarVenta)
 
 router_ventas.post("/",crearVenta)
