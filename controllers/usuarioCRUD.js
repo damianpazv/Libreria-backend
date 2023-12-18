@@ -54,12 +54,12 @@ const loginUsuario= async (req, res)=>{
    const usuario= await Usuario.findOne({nombre});
     
     if(!usuario){
-        return res.status(400).json({ok:false,mge:"alguno de los datos es incorrecto"});
+        return res.status(200).json({ok:false,mge:"alguno de los datos es incorrecto"});
     }
   
    const validarPassword=bcrypt.compareSync(password,usuario.password);
    if(!validarPassword){
-    return res.status(400).json({ok:false,mge:"alguno de los datos es incorrecto"});
+    return res.status(200).json({ok:false,mge:"alguno de los datos es incorrecto"});
    }
     
    
@@ -88,7 +88,7 @@ const editarUsuario=async (req, res)=>{
                  res.status(500).json({errors:error,msg:"contactese con el administrador"});
             }  
     }
-    const eliminarUsuario=async(req, res)=>{
+const eliminarUsuario=async(req, res)=>{
 
         try {
             const usuarioDelete= await Usuario.findById(req.params.id);

@@ -8,7 +8,7 @@ detalle:{ type: Array,
 total:{ type: Number,
          required:true,
        },
-fecha:{ type: Date,
+fecha:{ type: String,
             required:true,
           },   
                
