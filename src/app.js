@@ -3,6 +3,8 @@ const express = require('express');
 const router = require('./routes');
 const dbconection = require('./database/config');
 const cors=require('cors');
+const { notFoundHandler } = require('./middlewares/notFound');
+const { errorHandler } = require('./middlewares/error');
 require("dotenv").config();
 
 //crear app
@@ -18,7 +20,13 @@ app.use(cors());
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+
+
+//rutas
 app.use("/api",router);
+
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 //inicializar servidor
 app.listen(PORT,()=>{console.log(`server initialized in port ${PORT}`  )});

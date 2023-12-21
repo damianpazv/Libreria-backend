@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { crearProducto, mostrarProducto, editarProducto, eliminarProducto } = require("../controllers/productoCRUD");
+const { crearProducto, mostrarProducto, editarProducto, eliminarProducto, mostrarProductos, mostrarUnProducto } = require("../controllers/productoCRUD");
 const { check } = require("express-validator");
 
 
@@ -7,7 +7,9 @@ const router_productos=Router();
 
 
 // endpoints de producto
-router_productos.get("/", mostrarProducto)
+router_productos.get("/", mostrarProductos);
+
+router_productos.get("/one", mostrarUnProducto);
 
 router_productos.post("/",
 [
@@ -18,11 +20,11 @@ router_productos.post("/",
     
 ]
 
-,crearProducto)
+,crearProducto);
 
-router_productos.put("/", editarProducto)
+router_productos.put("/", editarProducto);
 
-router_productos.delete("/:id",eliminarProducto)
+router_productos.delete("/:id",eliminarProducto);
 
 
 
